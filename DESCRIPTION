@@ -1,9 +1,11 @@
 Package: maxprepsr
-Title: What the Package Does (one line, title case)
+Title: Web scraper for www.maxpreps.com
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Authors@R: person("David", "Ranzolin", role=c("aut", "cre"),
+    email = "daranzolin@gmail.com")
+Description: Are you a high school athlete who also knows R?
+  Good news--maxprepsr helps you scrape your and your opponents' statistics from the Maxpreps website.
 Depends: R (>= 3.3.1)
-License: What license is it under?
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
