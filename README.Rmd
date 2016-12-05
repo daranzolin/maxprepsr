@@ -10,7 +10,6 @@ knitr::opts_chunk$set(
   comment = "#>",
   fig.path = "README-"
 )
-library(dplyr)
 library(maxprepsr)
 ```
 
@@ -39,6 +38,7 @@ There are three functions at present:
 **Exhibit A**
 
 ```{r}
+suppressPackageStartupMessages(library(dplyr))
 prep <- maxpreps_team_stats("pacific union college prep", "falcons", "angwin", "ca", "basketball", "04-05")
 prep %>% 
   select(name, to) %>% 
