@@ -17,6 +17,7 @@ Imports: dplyr,
     rvest,
     xml2,
     tidyr,
-    purrr
+    purrr,
+    janitor
 URL: https://github.com/daranzolin/maxprepsr
 BugReports: https://github.com/daranzolin/maxprepsr/issues
