@@ -18,3 +18,5 @@ Imports: dplyr,
     xml2,
     tidyr,
     purrr
+URL: https://github.com/daranzolin/maxprepsr
+BugReports: https://github.com/daranzolin/maxprepsr/issues
