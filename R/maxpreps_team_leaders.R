@@ -13,6 +13,8 @@
 #' maxpreps_team_leaders("basketball", "scoring", "ca")
 maxpreps_team_leaders <- function(sport, category, state) {
 
+  options(warn = -1)
+
   if (missing(state)) {
     url <- sprintf("http://www.maxpreps.com/leaders/%s/,%s/team-leaders.htm", sport, category)
   } else {

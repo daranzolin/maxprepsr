@@ -3,9 +3,18 @@ Title: Web scraper for www.maxpreps.com
 Version: 0.0.0.9000
 Authors@R: person("David", "Ranzolin", role=c("aut", "cre"),
     email = "daranzolin@gmail.com")
-Description: Are you a high school athlete who also knows R?
-  Good news--maxprepsr helps you scrape your and your opponents' statistics from the Maxpreps website.
-Depends: R (>= 3.3.1)
+Description: Are you a high school athlete who also knows R? Good news--
+    maxprepsr helps you scrape your and your opponents' statistics from the Maxpreps
+    website.
+Depends:
+    R (>= 3.3.1)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 5.0.1
+Suggests: testthat
+Imports: dplyr,
+    rvest,
+    xml2,
+    tidyr,
+    purrr
