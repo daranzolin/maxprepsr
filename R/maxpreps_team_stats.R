@@ -19,9 +19,10 @@ maxpreps_team_stats <- function(school, mascot, city, state, sport, year) {
     tolower(gsub(" ", "-", x))
   }
   if (nchar(state) > 2) stop("state argument must be two character abbreviation.")
-  if (!sport %in% c("basketball", "volleyball", "baseball", "football")) stop("sport argument must be one of 'basketball', 'volleyball', 'baseball', or 'football'")
-  if (sport == "volleyball") {
+  if (sport %in% c("volleyball", "soccer", "football")) {
     year <- unlist(strsplit(year, "-"))[1]
+  } else if (sport == "baseball") {
+    year <- unlist(strsplit(year, "-"))[2]
   }
 
   school <- paste(hyphen_text(school), paste0(hyphen_text(mascot), "-"), sep = "-")
@@ -30,7 +31,10 @@ maxpreps_team_stats <- function(school, mascot, city, state, sport, year) {
 
   season <- switch(sport,
                    "basketball" = "winter",
-                   "volleyball" = "fall")
+                   "volleyball" = "fall",
+                   "soccer" = "fall",
+                   "football" = "fall",
+                   "baseball" = "spring")
 
   roster_url <- paste0(base_url, "/", sport, "-", season, "-", year, "/roster.htm")
   stats_url <- paste0(base_url, "/", sport, "-", season, "-", year, "/stats.htm")
@@ -50,14 +54,18 @@ maxpreps_team_stats <- function(school, mascot, city, state, sport, year) {
     xml2::read_html() %>%
     rvest::html_nodes(".stats-grid") %>%
     rvest::html_table() %>%
-    purrr::reduce(merge, all = TRUE) %>%
-    janitor::clean_names() %>%
-    dplyr::filter(!is.na(x))
+    purrr::map(~ janitor::clean_names(.))
 
-  if (nrow(stats_data) == 0) {
+  if (length(stats_data) == 0) {
     warning("No stats have been entered for this team")
     return(roster)
   }
+
+  stats_data <- stats_data[order(sapply(stats_data, nrow), decreasing = TRUE)]
+
+  stats_data <- stats_data %>%
+    purrr::reduce(dplyr::left_join, by = c("x", "athlete_name")) %>%
+    dplyr::filter(!is.na(x))
 
   all_data <- stats_data %>%
     dplyr::left_join(roster, by = "x")
