@@ -13,6 +13,18 @@ knitr::opts_chunk$set(
 library(maxprepsr)
 ```
 
+## UPDATE
+
+Alas, this package violates CBS Sports Interactive Terms of Use:
+
+*Without limiting any other provision in these Terms, you agree not to do the following, or assist others to do the following:*
+
+> Engage in unauthorized spidering, “scraping,” data mining or harvesting of Content, or use any other unauthorized automated means to gather data from or about the Services;
+
+Thus, development on his package will cease immediately.
+
+***
+
 ## Introduction
 
 Are you a high school athlete who loves to gaze at their own stats? Or are you a nerdy peer who likes to throw shade via snarky charts? Good news: `maxprepsr` is for both of you. With minimal input, you can scrape most of MaxPreps' tabular data into R. Perfect for the nerd-athlete.

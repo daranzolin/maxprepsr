@@ -1,5 +1,18 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+UPDATE
+------
+
+Alas, this package violates CBS Sports Interactive Terms of Use:
+
+*Without limiting any other provision in these Terms, you agree not to do the following, or assist others to do the following:*
+
+> Engage in unauthorized spidering, “scraping,” data mining or harvesting of Content, or use any other unauthorized automated means to gather data from or about the Services;
+
+Thus, development on his package will cease immediately.
+
+------------------------------------------------------------------------
+
 Introduction
 ------------
 
