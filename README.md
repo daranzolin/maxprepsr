@@ -30,7 +30,7 @@ There are three functions at present:
 -   Use `maxpreps_team_leaders()` to scrape team leaderboards.
 -   Use `maxpreps_indv_leaders()` to scrape individual leaderboards.
 
-**Exhibit A**
+**Exhibit A: Who had the most turnovers for the PUC Prep falcons during the 2004-2005 season?**
 
 ``` r
 suppressPackageStartupMessages(library(dplyr))
@@ -44,6 +44,20 @@ prep %>%
 ```
 
 Yea, I turned the ball over a lot.
+
+**Exhibit B: Of the top 50 scoring point guards in California right now, how many are juniors?**
+
+``` r
+ca_pgs <- maxpreps_indv_leaders(sport = "basketball", category = "scoring", state = "ca", position = "pg")
+ca_pgs %>% 
+  count(year)
+#> # A tibble: 3 × 2
+#>    year     n
+#>   <chr> <int>
+#> 1    Jr    10
+#> 2    So     5
+#> 3    Sr    35
+```
 
 Future Work
 -----------
