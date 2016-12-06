@@ -13,9 +13,13 @@
 #'
 #' @examples
 #' maxpreps_indv_leaders("basketball", "scoring", "ca", "12", "pg")
-maxpreps_indv_leaders <- function(sport, category, state, class_year, position) {
+maxpreps_indv_leaders <- function(sport, category, state, class_year = NULL, position) {
 
-  if (!class_year %in% 9:12 | !class_year %in% as.character(9:12)) stop("class_year must be one of 9, 10, 11, or 12")
+  options(warn = -1)
+
+  if (!missing(class_year)) {
+    if (!class_year %in% 9:12 | !class_year %in% as.character(9:12)) stop("class_year must be one of 9, 10, 11, or 12")
+  }
 
   if (missing(state)) {
     url <- sprintf("http://www.maxpreps.com/leaders/%s/,%s/stat-leaders.htm", sport, category)
